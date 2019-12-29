@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+                <title>BOARD</title>
+                <script type="text/javascript" src="/javascripts/jquery.js"></script>
+                <link rel="stylesheet" href="/stylesheets/board/index.css"/>
+                <link rel="stylesheet" href="/stylesheets/map_style.css"/>
+                <link href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Song+Myung&display=swap" rel="stylesheet">
+            </head>
+            
+            <body onload="">
+                <script>
+                        $(function() {
+                            $(".expand").on( "click", function() {
+                              $(this).next().slideToggle(100);
+                              $expand = $(this).find(">:first-child");
+                              
+                              if($expand.text() == "+") {
+                                $expand.text("-");
+                              } else {
+                                $expand.text("+");
+                              }
+                            });
+                        });
+                </script>
+
+                <script>
+                    function check_edit(tg){
+                        if( "<%=  session.user_id %>" != tg.name ){
+                            alert('아이디가 다릅니다!');
+                            return;
+                        }
+                        else{
+                            window.location.href = '/board/edit/'+ tg.id;
+                        }
+                    }
+
+                    function check_delete(tg){
+                        if( "<%= session.user_id %>" != tg.name ){
+                            alert('삭제할 수 없는 글입니다!');
+                            return;
+                        }
+                        else{
+                            var conf = confirm('정말로 삭제하시겠습니까?');
+
+                            if( conf == true ){
+                                window.location.href = "/board/delete/"+tg.id;
+                            }
+                            else if( conf == false )
+                                return;
+                        }
+                    }
+                </script>
+
+                <script src="/javascripts/jquery.js"></script>
+                <script src="/javascripts/map_control.js"></script>
+                <script src="/javascripts/numberscroll.js"></script>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+            
+                <header>
+                    <a href="/"><h1 id="title">CRIMINAL</h1></a>
+                    <div class="nav">
+                      <ul>
+                        <li class="home"><a href="/">HOME</a></li>
+                        <li class="map"><a class="active" href="/map">MAP</a></li>
+                        <li class="board"><a href="/board">BOARD</a></li>
+                        <li class="news"><a href="/news">NEWS</a></li>
+                      </ul>
+                    </div>
+                </header>
+
+            <div class="container">
+                <div id="item-list">
+                    <ul>
+                    <% for(var post of board) { %>
+                        <li>
+                            <a class="expand">
+                                <div class="right_arrow">+</div>
+                                <h2><%= post.board_title %></h2>
+                                <span>작성자 : <span id="writer"><%= post.board_writer %></span></span>
+                            </a>
+                            
+                            <div class="detail">
+                                <div>
+                                    <span><%= post.board_text %></span><br>
+                                    <button onclick="check_delete(this)" name="<%= post.board_writer %>" id="<%= post.board_id %>" >삭제</button>
+                                    <button onclick="check_edit(this)" name="<%= post.board_writer %>" id="<%= post.board_id %>">수정하기</button>
+                                    <!-- href="/board/edit/<%= post.board_id %>" -->
+                                    <% } %>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <a href="/board/create">글 작성하기</a>
+                </div>
+                <!--
+                </div>
+                        <table id="board">
+                                <tr>
+                                    <td>번호</td>
+                                    <td>작성자</td>
+                                    <td>제목</td>
+                                    <td>내용</td>
+                                </tr>
+                                
+                                    <tr>
+                                        <td><%= post.board_id %></td>
+                                        <td><%= post.board_writer %></td>
+                                        <td><%= post.board_title %></td>
+                                        <td><%= post.board_text %></td>
+                                    </tr>
+                                    <tr style="text-align:right">
+                                        <td></td>
+                                        
+                                    </tr>
+                                
+                            </table>
+                </div>
+            -->
+            </div>
+
+    <footer>
+        <p>소프트웨어학과 CGAC presents<br><strong style="font-size:1.2em">임성재 김정운 김재훈</strong></p>
+    </footer>
+</body>
+</html>

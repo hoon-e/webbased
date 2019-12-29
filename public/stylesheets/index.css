@@ -1,0 +1,184 @@
+body {
+    height: 1200px;
+    background-image: url('/images/policeline.jpg');
+    background-size: cover;
+    background-blend-mode: color-burn;
+}
+
+#login-panel {
+    width:100%;
+    float: top;
+    text-align: right;
+    display: block;
+}
+
+#top-panel{
+	list-style: none;
+}
+
+#top-panel li{
+	display: inline-block; 
+}
+
+#top-panel li a{
+    color: #FCBC00;
+	text-decoration: none; 
+}
+
+#menu-toc {
+    display: flex;
+    flex-direction : row;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: darkslategrey;
+    list-style-type: none;
+}
+
+.menu_item {
+    padding: 15px;
+    cursor: pointer;
+}
+
+.menu_item a{
+    text-align: center;
+    text-decoration: none;
+    color: #FCBC00;
+}
+
+.login, .join {
+    font-family: 'Song Myung', serif;
+    font-size: 25px;
+    padding: 15px;
+    cursor: pointer;
+    margin-right: 25px;
+}
+
+header{
+    text-align : center;
+    display: block;
+    margin-top: 100px;
+    position: relative;
+    top:-130px;
+}
+
+header a{
+    font-family: 'Nosifer', cursive;   
+    font-size: 130px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #FCBC00;
+}
+
+header p{
+    font-family: 'Song Myung', serif;
+    font-size: 30px;
+}
+
+section {
+    margin: 0 auto;
+}
+
+#search {
+    width: fit-content;
+    display: block;
+    margin:0 auto;
+    position: relative;
+    top : -150px;
+}
+
+#image {
+    margin-top: 6px;
+    width: fit-content;
+    display: block;
+    margin:0 auto;
+    position: relative;
+    top : -150px;
+}
+#image td{
+    padding:0 34px 0 34px;
+   border:2px solid gray;
+   border-radius: 10px 10px 10px 10px;
+   background-color: white;
+}
+
+#image td:hover{
+    transform: scale(1.2,1.2);
+    transition: ease 1s;
+
+}
+#press {
+    width: fit-content;
+    display: block;
+    margin:0 auto;
+}
+#press td{
+    padding:0 10px 0 10px;
+   border:2px solid gray;
+   border-radius: 10px 10px 10px 10px;
+   background-color: white;
+}
+
+#press td:hover{
+    transform: scale(1.2,1.2);
+    transition: ease 1s;
+    z-index: 100;
+}
+
+#search{
+	height: 45px;
+	width: 400px;
+	border:2px solid gray;
+	background: #ffffff;
+    border-radius: 4px 4px 4px 4px;
+    position: relative;
+    top:-200px;
+}
+
+input[type="text"]{
+	position: relative;
+	font-size: 15px;
+	width:325px;
+	padding:7px;
+	border:1px;
+	outline:none;
+	float:left;
+	top:7px;
+	left:1px;
+}
+
+input[type="submit"]{
+	position: relative;
+	font-size: 15px;
+	width:50px;
+	height: 44px;
+	padding:7px;
+	border:3px;
+    left:10.5px;
+    top:1px;
+	border-radius: 4px 4px 4px 4px;
+	outline:none;
+	float:left;
+}
+
+footer {
+    margin-top: 20px;
+}
+
+#middle_index_page {
+    width:fit-content;
+    margin: 0 auto;
+}
+
+#first {
+    color: #FCBC00;
+}
+
+#second {
+    color: #FBBC01;
+    margin-top: -30px;
+}
+
+span {
+    color: #FBBC01;
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script type="text/javascript" src="javascripts/jquery.js"></script>
+    <meta name="viewport" content="width = 1050, user-scalable = no" />
+    <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>범죄 정보 시각화</title>
+        <meta name="description" content="Fullscreen Pageflip Layout with BookBlock" />
+        <meta name="keywords" content="fullscreen pageflip, booklet, layout, bookblock, jquery plugin, flipboard layout, sidebar menu" />
+        <meta name="author" content="Codrops" />
+        <link rel="stylesheet" type="text/css" href='/stylesheets/index.css' />
+        <link href="https://fonts.googleapis.com/css?family=Nosifer&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Song+Myung&display=swap" rel="stylesheet">
+  </head>
+  <body>
+  <!-- index main 화면 -->
+    <div class="container">	
+        <div id="login-panel">
+              <ul id="top-panel">
+                  <li class="login"><a href="/map">게시판 이동</a></li>
+                  <li class="login"><a href="/users/logout">로그아웃</a></li>
+              </ul>
+        </div>
+
+        <header>
+            <a href="/" id="title">Criminal</a>
+            <p>범죄 정보를 한 눈에</p>
+            <p>범죄 정보 시각화 페이지</p>
+        </header>
+
+        <!-- <nav id="menu_bar">
+          <ul id="menu-toc">
+            <li class="menu_item"><a href="/">HOME</a></li>
+            <li class="menu_item"><a href="/board" >BOARD</a></li>
+            <li class="menu_item"><a href="/news" >NEWS</a></li>
+            <li class="menu_item"><a href="/map" >MAP</a></li>
+          </ul>
+        </nav> -->
+
+        <section>
+              <div id="search">
+                <form class ="search" method=get action="http://www.google.co.kr/search" target="_blank">
+                    <div id="search">
+                      <input type="text"  name="q"  value="" placeholder="내용을 입력하세요"/>
+                      <input type="submit" name="btnG" value="검색"/>
+                    </div>
+                </form>
+              </div>
+              <!-- 이미지 화면 -->
+              <div id="image">
+                  <table style="height: 100px;">
+                    <tr>
+                       <td> <a href="https://kosis.kr/search/search.do?query=%EB%B2%94%EC%A3%84"><img src="/images/국가 통계.png" width="180px" height= "60px"></a></td>
+                       <td> <a href="https://www.sexoffender.go.kr/m3s2.nsc"><img src="/images/성범죄자.png" width="140px" height= "65px" ></a></td>
+                       <td> <a href=" https://www.police.go.kr/main.html"><img src="/images/경찰청.png" width="200px" height= "60px" ></a></td>
+                    </tr>
+                  </table> 
+           </div>
+
+           <!-- 이미지 언론사 -->
+           <div id="press">
+                <a href = "http://www.hankookilbo.com/"><img src="/images/한국일보.png" style="width:240px; height:60px;"/></a>
+                <a href="https://joongang.joins.com/"><img src="/images/중앙일보.png"/></a>
+                <a href="http://news.jtbc.joins.com/"><img src="/images/jtbc.png"style="width:220px; height:60px;"/></a>
+                <a href="http://www.ccdailynews.com/"><img src="/images/충청일보.png"style="width:300px; height:60px;"/></a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+      <!-- 검색창, 로고 -->
+      <div id="middle_index_page">
+          <span>made by</span><a href ="/"><img src="/images/3355이미지.png"width="100px" height="50px"></a>
+      </div>
+    </footer>
+    <script src="/javascripts/jquery.js"></script>
+    <script src="/javascripts/map_control.js"></script>
+   	<script src="/javascripts/jquery.mousewhesel.j"></script>
+	  <script src="/javascripts/jquery.jscrollpane.min.js"></script>
+	  <script src="/javascripts/jquerypp.custom.js"></script>
+	  <script src="/javascripts/jquery.bookblock.js"></script>
+	  <script src="/javascripts/page.js"></script>
+  </body>
+</html>

@@ -1,0 +1,97 @@
+@import url("svg-common.css");
+
+body {
+    height: 1000px;
+    text-align: center;
+    z-index: -3;
+    margin: 0;
+    padding: 0;
+    background-image: url("/images/line.jpg");
+    background-size: cover;
+}
+
+#title {
+    width: 60%;
+    margin: 0 auto;
+    padding-top: 20px;
+    background-color: white;
+    font-family: 'Nosifer', cursive;
+    font-size: 60px;
+    color: #FCBC00;
+}
+
+a {
+    text-decoration : none;
+}
+
+.container {
+    width: 60%;
+    height: 117%;
+    margin: 0 auto;
+    background-color: white;
+}
+
+.nav {
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.nav ul {
+    list-style : none;
+    background-color:white;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+.nav li {
+    font-family: 'Ubuntu';
+    font-size: 1.2em;
+    line-height: 40px;
+    height: 40px;
+}
+
+.nav li:hover {
+    border-bottom-width: 2em;
+}
+
+.nav a {
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+    position: relative;
+    margin: 0px 20px;
+    font-size: 20px;
+    margin: 0 20px;
+    padding: 10px;
+}
+
+@media screen and (min-width: 600px){
+    .nav li {
+        width: 120px;
+        border-bottom: none;
+        height: 50px;
+        line-height: 50px;
+        font-size: 1.4em;
+    }
+
+    .nav li {
+        display : inline-block;
+        margin-right: -4px;
+    }
+}
+
+footer {
+    background: white;
+    border-top: 0.5px solid lightgray;
+    top:1250px;
+    height: fit-content;
+    position: absolute;
+    width: 60%;
+    left: 50;
+}
+
+footer p {
+    font-family: 'Noto Serif KR', serif;
+}

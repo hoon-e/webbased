@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="/javascripts/jquery.js"></script>
+    <link rel="stylesheet" href="/stylesheets/users/login.css">
+    <link href="https://fonts.googleapis.com/css?family=Nosifer&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Song+Myung&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <title>로그인</title>
+</head>
+<body>
+
+    <script>
+        function check_login(){
+            var doc = document.getElementById('login');
+
+            if(doc.id.value == ""){
+                alert('아이디를 입력해주세요!');
+                doc.id.focus();
+                return;
+            }
+            if(doc.password.value == ""){
+                alert('비밀번호를 입력해주세요!');
+                doc.password.focus();
+                return;
+            }
+            doc.submit();
+        }
+
+        function go_behind(){
+            window.location.href = '/users/join';
+        }
+
+    </script>
+        <script src="/javascripts/jquery.js"></script>
+        
+        <div class="container">
+                    <header>
+                            <a href="/" id="title">Criminal</a>
+                    </header>
+                    <% if( error != "없음"){ %>
+                        <h3 id="err"><%= error %></h3>
+                    <% } %>
+                    <% if(session.user_id){ %>
+                    <h2 style="margin-top: 40px;">아이디 <span style="color:blueviolet;"><%=session.user_id%></span>으로 로그인에 성공하셨습니다.</h2>
+                    <form action="/users/logout" method="GET">
+                        <input type="submit" value="로그아웃하시려면 클릭하세요.">
+                    </form>
+                    <% }else{ %>
+                    <h2 style="margin-top: 20px;">[ 로그인 ]</h2>
+                    <form id="login" action="/users/login" method="POST">
+                        <label for="id">ID</label>
+                        <input type="text" id="id" name="id" placeholder="ID를 입력해주세요."><br>
+                        <label for="password">비밀번호</label>
+                        <input type="password" id="password" name="password" placeholder="Password를 입력해주세요."><br>
+
+                        <div class="button">
+                            <input type="button" onclick="check_login();" id="button" value="로그인"/>
+                            <input type="button" onclick="go_behind();" id="button" value="회원가입">
+                        </div>
+                    </form>
+                    <% } %>
+            </div>
+</body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MAP</title>
+    <script type="text/javascript" src="/javascripts/jquery.js"></script>
+    <link rel="stylesheet" href="/stylesheets/map/show.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Song+Myung&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nosifer&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <script src="/javascripts/jquery.js"></script>
+    <script src="/javascripts/map_control.js"></script>
+    <script src="/javascripts/numberscroll.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+
+    <header>
+        <a href="/"><h1 id="title">CRIMINAL</h1></a>
+        <div class="nav">
+          <ul>
+            <li class="home"><a href="/">HOME</a></li>
+            <li class="map"><a class="active" href="/map">MAP</a></li>
+            <li class="board"><a href="/board">BOARD</a></li>
+            <li class="news"><a href="/news">NEWS</a></li>
+          </ul>
+        </div>
+    </header>
+
+  <div class="container">
+      <br><br>
+      <div id="map">
+            <svg style="width:200px; height:200px;" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" baseprofile="tiny" version="1.2" viewbox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+            
+             <path d="<%= province.d %>" id="<%= province.id %>" name="<%= province.name %>"/>
+          </svg>
+      </div>
+
+      <div id="map_control">
+          <div id="number_count">
+                <% var crime_sum = 0; var city = new Set(); for( var crime of crime_info ){ %>
+                  <% crime_sum += crime.casenumber %>
+                  <% city.add(crime.city) %>
+                <% } %>
+    
+                <%
+                  var crime_by_region = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];      
+                  var i = 0;
+                  
+                  for(let target of city){
+                    for(var crime of crime_info){
+                      if( crime.city == target ){
+                        crime_by_region[i] += crime.casenumber;
+                      }
+                    }
+                    i++;
+                  }
+                %>
+              
+              <span><%= crime.province %>의 총 범죄건수는 <span class='numscroller' data-min='1' data-max="<%= crime_sum %>" data-delay='5' data-increment='6481' style="font-style:italic; font-weight:bold; font-size:30px; color:brown;"><%= crime_sum %></span>건<span> 입니다.</span>
+          </div>
+          <br>
+          <table id="crime_kind">
+            <tr>
+              <th>지역 선택</th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+            <tr>
+              <td><a href="/map/show/seoul">서울</a></td>
+              <td><a href="/map/show/gyeonggi">경기</a></td>
+              <td><a href="/map/show/incheon">인천</a></td>
+              <td><a href="/map/show/gangwon">강원</a></td>
+            </tr>
+            <tr>
+              <td><a href="/map/show/chungbuk">충북</a></td>
+              <td><a href="/map/show/chungnam">충남</a></td>
+              <td><a href="/map/show/jeonbuk">전북</a></td>
+              <td><a href="/map/show/jeonnam">전남</a></td>
+            </tr>
+            <tr>
+              <td><a href="/map/show/gyeongbuk">경북</a></td>
+              <td><a href="/map/show/gyeongnam">경남</a></td>
+              <td><a href="/map/show/daegu">대구</a></td>
+              <td><a href="/map/show/ulsan">울산</a></td>
+            </tr>
+            <tr>
+              <td><a href="/map/show/busan">부산</a></td>
+              <td><a href="/map/show/gwangju">광주</a></td>
+              <td><a href="/map/show/daejeon">대전</a></td>
+              <td><a href="/map/show/sejong">세종</a></td>
+            </tr>
+            <tr>
+              <td><a href="/map/show/jeju">제주</a></td>
+            </tr>
+          </table>
+      </div>
+
+      <div id="map_graph">
+        <canvas id="bar_chart"></canvas>
+        <canvas id="pie_chart" style="margin-top:0"></canvas>
+      </div>
+      <!-- 
+                crime.province : 범죄 지역
+                crime.city : 지역에 해당하는 도시
+                crime_by_region : 도시에 해당하는 범죄 건수
+      -->
+      <footer>
+        <p>소프트웨어학과 CGAC presents<br><strong style="font-size:1.2em">임성재 김정운 김재훈</strong></p>
+      </footer>
+</div>
+
+<script>
+  let crime_city = new Set();
+  let crime_by_region = new Array();
+  let city_array = new Array();
+
+  data = [];
+
+  // 범죄 도시
+  <% for( var crime of crime_info ){ %>
+      crime_city.add("<%= crime.city %>");
+  <% } %>
+
+  // 지역 별 범죄 수
+  crime_by_region = [<%= crime_by_region %>];
+  crime_by_region = crime_by_region.slice( 0, crime_city.size );
+  
+  console.log(crime_by_region);
+
+  city_array = Array.from(crime_city);
+
+  var i = 0;
+
+  // city json 정보 만들기
+  /*
+  var city;
+  for( city of crime_city ){
+      data.push({ 'city_name': city , 'value': crime_by_region[i] });
+      i++;
+  }
+  */
+
+  // 막대 그래프 그리기
+  var ctx = document.getElementById('bar_chart').getContext('2d');
+  var pie_ctx = document.getElementById('pie_chart').getContext('2d');
+
+  // pie click event 추가
+
+  var crime_chart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      datasets: [{
+        data: crime_by_region,
+        backgroundColor: "#FCBC00",
+      }],
+      labels: city_array,
+    },
+    options: {
+      events: ['click'],
+      'onClick' : (e, item) => {
+        var value = item[0]['_view'].label;
+        var data = get_detail_criminal(value);
+        updatePieChart(value, data);
+      },
+      responsive: false,
+      title: {
+        display: true,
+        fontSize : 25,
+        fontColor: "#FCBC00",
+        padding : 20,
+        text : '<%= crime.province %> 범죄 건수'
+      },
+      legend : {
+        display : false
+      },
+      scales:{
+        xAxes :[{
+          barPercentage: 1,
+          barThickness: 20,
+          maxBarThickness: 60,
+          minBarLenth: 2,
+          gridLines: {
+            offsetGridLines: true
+          }
+        }],
+        yAxes :[{
+          ticks:{
+            min : Math.min.apply(null, crime_by_region),
+            max : Math.max.apply(null, crime_by_region),
+            precision : 1,
+            labelOffset : 4,
+          },
+          id : '범죄 건수',
+          type: 'linear'
+        }]
+      }
+    }
+  });
+
+  let pie_chart = new Chart(pie_ctx, {
+    type: 'pie',
+    data: {
+      datasets: [{
+        data: null,
+        backgroundColor:"#FCBC00",
+      }],
+      labels: null,
+    },
+    options: {
+      responsive: false,
+      legend : {
+        display : false,
+      }
+    }
+  });
+
+  function updatePieChart(value, use_data){
+      pie_chart.data.labels.pop();
+      pie_chart.data.datasets.pop();
+
+      pie_chart.data.datasets.push({backgroundColor: 'gray', data: use_data[1]['crime_bigsort_num']});
+
+      use_data[0]['crime_bigsort'].forEach((label)=>{
+        pie_chart.data.labels.push(label);
+      });
+
+      pie_chart.update();
+  };
+
+  function get_detail_criminal(value){
+      let crime_bigsort = new Set();
+      // let crime_smallsort = new Set();
+
+      <% for( var crime of crime_info ){ %>
+        if( value == "<%= crime.city %>" ){
+          crime_bigsort.add("<%= crime.crime_bigsort %>");
+          // crime_smallsort.add("<%= crime.crime_smallsort %>");
+        }
+      <% } %>
+
+      let crime_bigsort_number = Array.apply(null, new Array(crime_bigsort.size)).map(Number.prototype.valueOf, 0);
+      // let crime_smallsort_number = Array.apply(null, new Array(crime_smallsort.size)).map(Number.prototype.valueOf, 0);
+
+      var i = 0;
+
+      for(var crime_big of crime_bigsort){
+        <% for( var crime of crime_info ){ %>
+          if( crime_big == "<%= crime.crime_bigsort %>" && value == "<%= crime.city %>"){
+            crime_bigsort_number[i] += <%= crime.casenumber %>;
+          }
+        <% } %>
+        i++;
+      }
+
+      let crime_bigsort_arr = Array.from(crime_bigsort);
+      let crime_bigsort_number_arr = Array.from(crime_bigsort_number);
+
+      let piedata = [];
+
+      piedata.push({'crime_bigsort' : crime_bigsort_arr}, {'crime_bigsort_num': crime_bigsort_number_arr});
+
+      return piedata;
+  }
+
+</script>
+
+</body>
+</html>

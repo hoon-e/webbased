@@ -1,0 +1,70 @@
+table{
+    
+    margin-top: 10px;
+    border: 1px solid black;
+    width: 800px;
+    height: 350px;
+    border-collapse: collapse;
+    
+}
+tr,td{
+    border: 1px solid black;
+    width: 15%;
+}
+
+input[type=text]{
+    background-color: transparent;
+    border: 0 solid black;
+   width: 100%;
+   height: 30%;
+    border: none;
+}
+.line1{
+    background-color: rgb(156, 155, 155);
+    text-align: center;
+    width: 15%;
+}
+.line2{
+    width: 85%;
+}
+#form_input{
+    width: fit-content;
+    margin: 0 auto;
+
+}
+#button{
+    width: fit-content;
+    margin:0 auto;
+    margin-top: 10px;
+  
+   
+}
+button{
+    background: transparent;
+    text-transform: uppercase;
+    font-weight: 150;
+    font-style: normal;
+    font-size: 15px;
+    font-weight: 15px;
+    letter-spacing: 0.5em;
+    color: black(223,190,106,0.7);
+    border-radius: 0;
+    padding: 10px 15px 10px;
+    transition: all 0.7s ease-out;
+    background: linear-gradient(270deg, rgba(151, 149, 143, 0.8), rgba(116, 107, 93, 0.8), rgba(34,34,34,0), rgba(34,34,34,0));
+    background-position: 1% 50%;
+    background-size: 300% 300%;
+    text-decoration: none;
+    margin: 0 auto;
+    border: none;
+    border: 1px solid rgba(223,190,106,0.3);
+}
+button:hover{
+    color: #fff;
+    border: 1px solid rgba(223,190,106,0);
+    color: white;
+    background-position: 99% 50%;
+}
+#btn{
+    text-align: center;
+}

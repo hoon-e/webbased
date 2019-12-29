@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+                <title>수정하기</title>
+                <script type="text/javascript" src="/javascripts/jquery.js"></script>
+                <link rel="stylesheet" href="/stylesheets/board/edit.css"/>
+                <link rel="stylesheet" href="/stylesheets/map_style.css"/>
+                <link href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Song+Myung&display=swap" rel="stylesheet">
+                <link href="https://fonts.googleapis.com/css?family=Nosifer&display=swap" rel="stylesheet">
+            </head>
+            
+            <body onload="">
+
+                <script>
+                    function check_board(){
+                        var doc = document.getElementById('create_form');
+
+                        if(doc.board_title.value == ""){
+                            alert('글 제목을 입력해주세요!');
+                            return;
+                        }
+                        if(doc.board_text.value == ""){
+                            alert('글 내용을 입력해주세요!');
+                            return;
+                        }
+                        alert('글 입력이 완료되었습니다!');
+                        doc.submit();
+                    }
+                </script>
+                <script src="/javascripts/jquery.js"></script>
+                <script src="/javascripts/map_control.js"></script>
+                <script src="/javascripts/numberscroll.js"></script>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+            
+                <header>
+                    <a href="/"><h1 style="text-align: center;" id="title">CRIMINAL</h1></a>
+                    <div class="nav">
+                      <ul>
+                        <li class="home"><a href="/">HOME</a></li>
+                        <li class="map"><a class="active" href="/map">MAP</a></li>
+                        <li class="board"><a href="/board">BOARD</a></li>
+                        <li class="news"><a href="/news">NEWS</a></li>
+                      </ul>
+                    </div>
+                </header>
+
+            <div class="container">
+                <h2 style="padding-top: 60px;">글 수정</h2>
+                <% if(session.user_id == null) { %>
+                    <h2>로그인이 필요합니다.</h2>
+                    <a href="/users/login"> 로그인 </a>
+                    <a href="/users/join"> 회원가입 </a>
+                <% } else { %>
+                <form id="create_form" action="/board/create" method="POST">
+                        <span id="writer1">작성자</span><br>
+                        <span id="writer2"><%= (session.user_id) %> </span><br><br>
+                        <label for="board_title">글 제목</label><br>
+                        <input type="text" id="board_title" name="board_title" placeholder="<%= post[0].board_title %>" ><br>
+                        <label for="board_text"> 내용</label><br>
+                        <textarea placeholder= "<%=post[0].board_text %>" name="board_text" id="board_text" cols="60" rows="15"></textarea><br>
+
+                        <div id="input-box">
+                                <input id="button" type="button" value="글 작성" onclick="check_board();">
+                                <input id="button" onclick="window.location.href='/board'" type="button" value="뒤로가기">
+                        </div>
+                </form>
+                <% } %>
+            </div>
+</body>
+</html>

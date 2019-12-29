@@ -1,0 +1,148 @@
+body {
+    height: 1500px;
+}
+
+#title {
+    text-align: center;
+}
+
+.container {
+    width: 60%;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.nav ul {
+    list-style : none;
+    background-color:white;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+.nav li {
+    font-family: 'Ubuntu';
+    font-size: 1.2em;
+    line-height: 40px;
+    height: 40px;
+    border-bottom: 1px solid #888;
+}
+
+.nav a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    border-radius: 25%;
+    transition: 2s background-color;
+}
+
+.nav a:hover {
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+    border-radius: 25%;
+}
+
+@media screen and (min-width: 600px){
+    .nav li {
+        width: 120px;
+        border-bottom: none;
+        height: 50px;
+        line-height: 50px;
+        font-size: 1.4em;
+    }
+
+    .nav li {
+        display : inline-block;
+        margin-right: -4px;
+    }
+}
+
+footer {
+    background: white;
+    border-top: 0.5px solid lightgray;
+    top:1500px;
+    height: fit-content;
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    text-align: center;
+}
+
+footer p {
+    font-family: 'Noto Serif KR', serif;
+}
+
+#item-list ul {
+    padding: 0;
+    margin: 20px 0;
+    font-family: 'Noto Serif KR', serif;
+    color:#555;
+}
+
+#item-list ul > li {
+    list-style: none;
+    border-top: 1px solid lightcyan;
+    display: block;
+    padding: 15px;
+    overflow: hidden;
+}
+
+#item-list ul:last-child {
+    border-bottom: 1px solid lightcyan;
+}
+
+#item-list ul > li:hover {
+    border-bottom: 1px solid lightsalmon;
+}
+
+.button {
+    padding: 8px 12px;
+    font-size: 14px;
+    background: #ccc;
+    display: block;
+    width: 200px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.expand {
+    display: block;
+    text-decoration:none;
+    color: black;
+    cursor: pointer;
+}
+
+h2{
+    padding: 0;
+    margin: 0 0 5px 0;
+    font-size: 25px;
+}
+  
+  span {
+    font-size: 18px;
+  }
+  
+  .detail {
+    margin: 20px 0 0 0;
+    display: none;
+    line-height: 22px;
+  }
+  
+  .right_arrow {
+    width: 10px;
+    height: auto;
+    float: left;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 15px 30px 0 0;
+  }
+
+  #delete {
+      float: right;
+  } 
+
+  #edit {
+      float: right;
+      margin-right: 5px;
+  }

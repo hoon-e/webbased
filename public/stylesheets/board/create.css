@@ -1,0 +1,214 @@
+body {
+    height: 1000px;
+    margin:0;
+    padding:0;
+    background-image: url("/images/line.jpg");
+    background-size: cover;
+}
+
+#title {
+    width:60%;
+    margin: 0 auto;
+    background-color: white;
+    font-family: 'Nosifer', cursive;
+    font-size: 60px;
+    padding-top: 20px;
+    color: #FCBC00;
+}
+
+a {
+    text-decoration : none;
+}
+
+.container {
+    width: 60%;
+    height: 1000px;
+    margin: 0 auto;
+    background-color:white;
+}
+
+.nav {
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.nav ul {
+    list-style : none;
+    background-color:white;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+.nav li {
+    font-family: 'Ubuntu';
+    font-size: 1.2em;
+    line-height: 40px;
+    height: 40px;
+}
+
+.nav li:hover {
+    border-bottom-width: 2em;
+}
+
+.nav a {
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+    position: relative;
+    margin: 0px 20px;
+    font-size: 20px;
+    margin: 0 20px;
+    padding: 10px;
+}
+
+@media screen and (min-width: 600px){
+    .nav li {
+        width: 120px;
+        border-bottom: none;
+        height: 50px;
+        line-height: 50px;
+        font-size: 1.4em;
+    }
+
+    .nav li {
+        display : inline-block;
+        margin-right: -4px;
+    }
+}
+
+footer {
+    text-align: center;
+    background: white;
+    border-top: 0.5px solid lightgray;
+    top:1500px;
+    height: fit-content;
+    position: absolute;
+    width: 100%;
+    left: 0px;
+}
+
+footer p {
+    font-family: 'Noto Serif KR', serif;
+}
+
+#create_form {
+    width: fit-content;
+    margin: 0 auto;
+    margin-top: 25px;
+}
+
+form {
+    background:rgba(255,255,255,0.95);
+    margin:0 auto;
+	width:400px;
+	min-height:400px;
+	background:white;
+	padding:2.5% 5% 2.5%;
+	border-radius:2.5%;
+}
+
+h2 {
+    width:60%;
+    background-color:white;
+	font-size:2em;
+	padding:0;
+	margin:0 auto;
+    text-align:center;
+    font-family: 'Noto Serif KR', serif;
+}
+
+input {
+	margin:5% 0;
+	border:none;
+	width:100%;
+	font-size:1.5em;
+	padding:0 0 2%;
+    background:none;
+    font-family: 'Noto Serif KR', serif;
+}
+
+textarea:focus, input:focus{
+    outline: 0;
+}
+
+#board_title {
+	border-bottom:2px solid rgb(10, 39, 56);
+}
+
+#board_text {
+	border-bottom:2px solid rgb(10, 39, 56);
+}
+
+label {
+	color:#BDC3C7;
+	text-transform:uppercase;
+    font-size:0.8em;
+    font-family: 'Noto Serif KR', serif;
+	letter-spacing:4px;
+}
+
+.button {
+    width:100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+#button {
+	background:none;
+	border:none;
+	width:100px;
+    min-height:50px;
+    margin-right: 30px;
+    display: inline-block;
+	border-radius:2.5%;
+	color:white;
+	padding:0.5% 0 0;
+	font-size:1.2em;
+    font-family: 'Noto Serif KR', serif;
+    -webkit-transition: background 4s ease-out; 
+    transition: background 4s ease-out; 
+    background: -webkit-linear-gradient(left,  #919ed6 0%,#b8b4ab 100%);
+}
+
+#button:hover {
+    background-position:-400px;  
+}
+
+#writer1 {
+    color:#BDC3C7;
+    font-size:0.8em;
+    font-family: 'Noto Serif KR', serif;
+    margin-bottom: 20px;
+}
+
+#writer2 {
+    color: black;
+    font-size:1.2em;
+    font-family: 'Noto Serif KR', serif;
+}
+
+#login-box {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+#login {
+    display: inline-block;
+    text-align : center;
+    text-decoration: none;
+    font-family: 'Noto Serif KR', serif;
+    font-size : 15pt;
+    margin-right: 20px;
+    transition: 2s;
+}
+
+#login:hover {
+    color: red;
+}
+
+#input-box {
+    width: fit-content;
+    margin: 0 auto;
+}

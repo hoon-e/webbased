@@ -1,0 +1,135 @@
+body {
+    height: 1000px;
+    background-image: url('/images/policeline.jpg');
+    background-size: cover;
+    background-blend-mode: color-burn;
+}
+
+a {
+    text-decoration : none;
+}
+
+.container {
+    width: 60%;
+    height: 800px;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+
+header{
+    text-align : center;
+    display: block;
+    margin-top: 50px;
+}
+
+header a{
+    font-family: 'Nosifer', cursive;   
+    font-size: 80px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #FFBF00;
+}
+
+.join_form {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+form {
+    margin:5% auto;
+	width:400px;
+	min-height:400px;
+	padding:2.5% 5% 2.5%;
+	border-radius:2.5%;
+}
+
+h2 {
+	font-size:2em;
+	padding:0;
+	margin:0;
+	text-align:center;
+	color: #FFBF00;
+    font-family: 'Noto Serif KR', serif;
+}
+
+a {
+	display:block;
+	text-decoration:none;
+	color:#FFBF00;
+	text-align:center;
+	padding:20px 0 0;
+}
+
+#err {
+    text-align:center;
+    color: #ddc683;
+}
+
+input {
+	margin:5% 0;
+	border:none;
+	width:100%;
+	font-size:1.5em;
+	padding:0 0 2%;
+	background:none;
+	color: #FFBF00;
+    font-family: 'Noto Serif KR', serif;
+}
+
+input::placeholder {
+    color: #ddc683;
+}
+
+textarea:focus, input:focus{
+    outline: 0;
+}
+
+#id {
+	border-bottom:2px solid #FFBF00;
+}
+
+#password {
+	border-bottom:2px solid #FFBF00;
+}
+
+#name {
+	border-bottom:2px solid #FFBF00;
+}
+
+#age {
+    border-bottom:2px solid #FFBF00;
+}
+
+label {
+	color:#FFBF00;
+	text-transform:uppercase;
+    font-size:0.8em;
+    font-family: 'Noto Serif KR', serif;
+	letter-spacing:4px;
+}
+
+.button {
+    width:100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+#button {
+	background:none;
+	border:none;
+	width:30%;
+	min-height:50px;
+	margin:0 auto;
+	border-radius:2.5%;
+	color:black;
+    font-size:14pt;
+    padding-top:2px;
+    font-family: 'Noto Sans KR', sans-serif;
+    -webkit-transition: background 4s ease-out; 
+    transition: background 4s ease-out; 
+	background: -webkit-linear-gradient(left,  #C7A600 20%,#F4CB01 100%);
+}
+
+#button:hover {
+    background-position:-400px;  
+}

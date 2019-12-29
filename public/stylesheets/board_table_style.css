@@ -1,0 +1,52 @@
+.table {
+    width:100%;
+    border-collapse: separate;
+    border-spacing: 1px;
+    text-align: left;
+    line-height: 1.5;
+    border-top: 1px solid #ccc;
+    margin: 20px 10px;
+    margin: 0 auto;
+    margin-top: 0;
+}
+.table th {
+    width: 150px;
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+    background: #efefef;
+    text-align: center;
+}
+.table td {
+    width: 400px;
+    padding: 10px;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+}
+#creat{
+    margin: 0 auto;
+    width: fit-content;
+    
+}
+.head5{
+    width: 100px;
+}
+#delete,#modify{
+    background-color: transparent;
+    border: 0 solid black;
+   text-align: center;
+    border: none;
+}
+#modify{
+    font-size: 12.2px;
+    
+}
+#delete,#modify:hover{
+    color:rgb(196, 133, 133);
+    
+}
+hr{
+    width: 70%;
+}
